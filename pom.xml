@@ -11,7 +11,7 @@
   <groupId>org.carrot2.shaded</groupId>
   <artifactId>carrot2-guava</artifactId>
   <packaging>jar</packaging>
-  <version>29.0-jre</version>
+  <version>30.0-jre</version>
 
   <name>Google Guava (shaded)</name>
   <description></description>
@@ -115,12 +115,26 @@
               <artifactSet>
                 <includes>
                   <include>com.google.guava:*</include>
+                  <include>com.google.errorprone:*</include>
+                  <include>com.google.code.findbugs:jsr305</include>
                 </includes>
               </artifactSet>
               <relocations>
                 <relocation>
-                  <pattern>com.google</pattern>
-                  <shadedPattern>org.carrot2.shaded.guava</shadedPattern>
+                  <pattern>com.google.common</pattern>
+                  <shadedPattern>org.carrot2.shaded.guava.common</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>com.google.thirdparty</pattern>
+                  <shadedPattern>org.carrot2.shaded.guava.thirdparty</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>com.google.errorprone</pattern>
+                  <shadedPattern>org.carrot2.shaded.errorprone</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>javax.annotation</pattern>
+                  <shadedPattern>org.carrot2.shaded.jsr305</shadedPattern>
                 </relocation>
               </relocations>                 
             </configuration>
